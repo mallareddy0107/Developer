@@ -1,0 +1,33 @@
+<apex:page standardController="Account">
+
+    <table border="6" >
+
+        <tr>
+
+            <th>Account Name</th> <br/>
+            <th>Website</th> <br/>
+
+            <th>Min Contact</th><br/>
+            <th>Most_Recently_Created_Opportunity_Name__c</th> <br/>
+
+        </tr>
+
+        <apex:repeat var="acc" value="{!Account}">
+
+        <tr>
+
+            <td>{!acc.Name}</td> <br/>
+
+            <td>{!acc.Website}</td>
+
+            <td>{!acc.MinContact__c}</td>
+
+            <td>{!acc.Most_Recently_Created_Opportunity_Name__c}</td>
+
+        </tr>
+
+        </apex:repeat> 
+
+    </table>
+    
+</apex:page>

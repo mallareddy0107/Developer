@@ -1,0 +1,69 @@
+<apex:page controller="Sample" >
+
+<!-- Javascript -->
+    <script type="text/javascript">
+
+    function validate()
+    {
+        if(document.getElementById('{!$Component.frm.pb.pbs.pbs2.mail}').value == '')
+        {
+            alert("Contact Email is mandatory");
+        }
+        /*var email = document.getElementById("{!$Component.frm.pb.pbs.pbs3.tmail}").value;
+        var emailFilter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+    
+        if (!emailFilter.test(email)) {
+        alert('Please enter a valid e-mail address.');
+        //return false;
+        }*/
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(!mailformat.test((document.getElementById('{!$Component.frm.pb.pbs.pbs3.tmail}').value))) 
+        {
+          alert("Enter valid Email");
+        }
+        else
+        {
+            callSubmt();
+            alert("Contact has been inserted");
+        }
+    }
+   
+    </script>
+<!-- Javascript -->
+
+<apex:form id="frm">
+
+<apex:actionFunction action="{!submt}" name="callSubmt" reRender="pb"/>
+
+    <apex:pageBlock id="pb">
+        <apex:pageBlockSection id="pbs">
+            <apex:pageblocksectionItem id="pbs1"><apex:outputLabel value="Last Name"/>
+            <apex:inputtext value="{!nam}" id="nam"/> </apex:pageblocksectionItem>
+            <apex:pageblocksectionItem id="pbs2"><apex:outputLabel value="Email"/>
+            <apex:inputText value="{!mail}" id="mail"/> </apex:pageblocksectionItem>
+            <apex:pageblocksectionItem id="pbs3"><apex:outputLabel value="Test Email"/>
+            <apex:inputText value="{!tmail}" id="tmail"/> </apex:pageblocksectionItem>
+                                                  
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Insert" onclick="validate();"/>
+        </apex:pageBlockButtons>
+   </apex:pageBlock>
+    <apex:pageblock >
+     <apex:pageblockButtons >
+       <apex:commandButton value="Search" action="{!search}"/>
+     </apex:pageblockButtons>
+    <apex:pageBlockSection >
+     <apex:inputText label="Enter Contact Name" value="{!enteredcontact}"/>
+    </apex:pageBlockSection>
+    <apex:pageblocksection >
+      <apex:pageblockTable value="{!records}" var="cont">
+        <apex:column value="{!cont.Email}" headerValue="Email"/>
+        <apex:column value="{!cont.Name}" headerValue="Name"/>
+        <apex:column value="{!cont.Phone}" headerValue="phone"/>
+      </apex:pageblockTable>
+    </apex:pageblocksection>
+   </apex:pageblock>
+</apex:form>
+
+</apex:page>

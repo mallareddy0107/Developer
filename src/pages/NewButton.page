@@ -1,0 +1,10 @@
+<!-- <apex:page standardController="Student__c" action="{!URLFOR($Action.Malla__Student__c.New, null, [retURL=URLFOR($Action.Malla__Student__c.Tab, $ObjectType.Malla__Student__c),RecordType='01290000001YZcW'], false)}">
+
+</apex:page> -->
+
+<apex:page standardController="Student__c" extensions="extCtrlRecordtyperedirect"
+action="{!if(strRecTypeName=='Read_Only_Layout',null,
+URLFOR($Action.Student__c.New,
+$ObjectType.Student__c,null,true))}">
+
+</apex:page>

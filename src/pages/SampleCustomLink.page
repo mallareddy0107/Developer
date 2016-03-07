@@ -1,0 +1,19 @@
+<apex:page controller="SimilarCasesController" tabStyle="Case">
+    <apex:form >
+    
+    <apex:sectionHeader title="Similar Cases" subtitle="{!currentCase.CaseNumber}"/>
+    
+    <apex:pageBlock title="Similar Cases to {!currentCase.CaseNumber}">
+        <apex:pageBlockTable value="{!similarCases}" var="case">
+            <apex:column >
+                <apex:outputLink value="{!URLFOR($Action.Case.View, case.Id)}">View</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Case Number" value="{!case.CaseNumber}"/>
+            <apex:column headerValue="Owner" value="{!case.Owner.Name}"/>
+            <apex:column headerValue="Subject" value="{!case.Subject}"/>
+            <apex:column headerValue="Status" value="{!case.Status}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Calculated_Blended_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>if( RH_Total_Hours__c  &gt; 0,  RH_Total_Amount__c  /  RH_Total_Hours__c , 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Blended Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RH_Archive_Resource_Assignments__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, will automatically check the RH Make Read Only, RH Exclude from Utilization Coloring and RH Exclude on Resource Tab checkboxes.</inlineHelpText>
+        <label>RH Archive Resource Assignments</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RH_Exclude_from_Utilization_Coloring__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Exclude from Utilization Coloring</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RH_Exclude_on_Resources_Tab__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Exclude on Resources Tab</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RH_Make_Read_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Make Read Only</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RH_Remaining_Forecast_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Resource_Roll_up_Amount__c -   RH_Roll_up_Actual_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Remaining Forecast Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RH_Remaining_Forecast_Hours__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Resource_Roll_up_Hours__c - RH_Roll_up_Actual_Hours__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Remaining Forecast Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Roll_up_Actual_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>RH_Total_Actual_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Roll-up Actual Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RH_Roll_up_Actual_Hours__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>RH_Total_Actual_Hours__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Roll-up Actual Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Total_Actual_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Total Actual Amount - DO NOT EDIT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RH_Total_Actual_Hours__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Total Actual Hours - DO NOT EDIT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Total_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Total Forecast Amount - DO NOT EDIT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RH_Total_Hours__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RH Total Forecast Hours - DO NOT EDIT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Roll_up_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>RH_Total_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Roll-up Forecast Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Roll_up_Hours__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>RH_Total_Hours__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RH Roll-up Forecast Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>Resource_Hero</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>Resource_Roll_up_Hours__c</columns>
+        <columns>RH_Roll_up_Actual_Hours__c</columns>
+        <columns>Resource_Roll_up_Amount__c</columns>
+        <columns>RH_Roll_up_Actual_Amount__c</columns>
+        <columns>Calculated_Blended_Rate__c</columns>
+        <columns>RH_Remaining_Forecast_Hours__c</columns>
+        <columns>RH_Remaining_Forecast_Amount__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Resource Hero</label>
+    </listViews>
+</CustomObject>

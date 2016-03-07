@@ -1,0 +1,6 @@
+<apex:page controller="sampletest">
+<apex:form >
+ Enter a vlaue: <apex:inputtext value="{!userinput}">
+ </apex:inputtext>
+ </apex:form>
+</apex:page>

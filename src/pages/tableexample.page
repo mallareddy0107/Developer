@@ -1,0 +1,51 @@
+<apex:page standardController="Account" extensions="dataTableCon">
+ <style>
+.pbBody td {
+ border-color: #E3DEB8;
+ border-style: none none solid;
+ border-width: medium medium 2px;
+ padding-bottom: 4px;
+ padding-top: 4px;
+ width: 85px;
+}
+.pbBody input   { width: 105px;}
+.pbBody .nameColumn { width: 125px;}
+.hdr     {;}
+</style>
+<apex:form >
+ <apex:messages />
+
+ <apex:sectionHeader title="Deliverables for" subtitle="{!Account.name}" />
+ <apex:pageBlock title="Edit Deliverables">
+  <apex:pageBlockButtons >
+   <apex:commandButton action="{!saveChanges}" value="Save"
+    rerender="main" status="ajaxStatus" />
+   <apex:commandButton action="{!cancel}" value="Cancel" />
+  </apex:pageBlockButtons>
+  <apex:actionStatus id="ajaxStatus" startText="Updating schedules...">
+   <apex:facet name="stop">
+   <apex:outputPanel id="main">
+    <table>
+    <tr>
+     <apex:repeat value="{!headers}" var="h">
+      <td class="hdr">{!h}</td>
+     </apex:repeat>
+    </tr>
+
+    <apex:repeat value="{!Deliverables}" var="a">
+     <tr>
+      <td ><apex:inputField value="{!a.name}" /></td>
+      <td><apex:inputField value="{!a.AccountNumber}" /></td>
+      <td><apex:inputField value="{!a.Email__c}" /></td>
+      <td><apex:inputField value="{!a.SLAExpirationDate__c}" /></td>
+      <td><apex:inputField value="{!a.Website}" /></td>
+      <td><apex:inputField value="{!a.AllStates__c}" /></td>
+     </tr>
+    </apex:repeat>
+    </table>
+   </apex:outputPanel>
+   </apex:facet>
+  </apex:actionStatus>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

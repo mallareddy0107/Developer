@@ -1,0 +1,4 @@
+<apex:page standardController="opportunity" sidebar="false">
+  <apex:iframe src="https://www.salesforce.com" frameborder="true" scrolling="true" id="theIframe" width="100%"/>
+  <!-- <script>document.getElementById('theIframe').height = window.innerHeight - 220;</script>-->
+   </apex:page>

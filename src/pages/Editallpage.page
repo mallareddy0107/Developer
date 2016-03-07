@@ -1,0 +1,23 @@
+<apex:page standardController="OpportunityBuyerValue__c" recordSetVar="BuyerValues" tabStyle="Opportunity" extensions="BuyerValues_Controller">
+  
+   <apex:pagemessages />
+   <apex:outputPanel id="myPanel">
+    <apex:form >        
+        <apex:pageBlock title="Edit BuyerValues" mode="edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!saveBuyerValues}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!BuyerValuesList}" var="a">
+                                
+                <apex:column headerValue="Buyer Value">
+                    <apex:inputField value="{!a.BuyerValueNm__c}"/>
+                </apex:column>
+                <apex:column headerValue="Importance for the Client">
+                    <apex:inputField value="{!a.ClientRankNbr__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+         </apex:pageBlock>          
+    </apex:form>
+    </apex:outputPanel>
+</apex:page>

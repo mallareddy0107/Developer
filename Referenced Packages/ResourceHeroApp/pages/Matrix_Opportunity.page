@@ -1,0 +1,3 @@
+<apex:page standardcontroller="Opportunity" id="ResourceHeroPage">
+        <c:Matrix ActualOrForecast="Forecast" ForceReadOnly="false" PageURL="/apex/matrix_opportunity" DefaultViewBy="WEEK" DefaultTimeRange=""/>
+</apex:page>

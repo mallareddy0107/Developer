@@ -1,0 +1,35 @@
+<apex:page standardController="OM_R1_Competitor__c" recordSetVar="CompetitorValues" tabStyle="Opportunity" extensions="CompetitorValues_Controller">
+   <script>function setFocusOnLoad() {}</script>
+   <apex:pagemessages />
+   <apex:outputPanel id="myPanel">
+    <apex:form >        
+        <apex:pageBlock title="Edit CompetitorValues" mode="edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!saveCompetitorValues}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!CompetitorsList}" var="a">
+                                
+                <apex:column headerValue="Competitor">
+                    <apex:inputField value="{!a.Competitor__c}"/>
+                </apex:column>
+                <apex:column headerValue="Other Competitors">
+                    <apex:inputField value="{!a.OtherCompetitors__c}"/>
+                </apex:column>
+                <apex:column headerValue="Strengths">
+                    <apex:inputField value="{!a.OM_R1_Strengths__c}"/>
+                </apex:column>
+                <apex:column headerValue="Weaknesses">
+                    <apex:inputField value="{!a.OM_R1_Weaknesses__c}"/>
+                </apex:column>
+                <apex:column headerValue="Our Strategy to Win">
+                    <apex:inputField value="{!a.AccentureStrategyToWinDesc__c}"/>
+                </apex:column>
+                 <apex:column headerValue="Their Strategy to Win">
+                    <apex:inputField value="{!a.CompetitorStrategyToWinDesc__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+         </apex:pageBlock>          
+    </apex:form>
+    </apex:outputPanel>
+</apex:page>

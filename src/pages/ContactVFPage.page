@@ -1,0 +1,61 @@
+<apex:page Standardcontroller="Contact" extensions="ContactExtension" >
+
+<!-- Javascript -->
+    <script type="text/javascript">
+    function validate()
+    {
+        
+        if(document.getElementById('{!$Component.frm.pb.pbs.pbs3}').value == '')
+        {
+            alert("Contact Phone is mandatory");
+        }
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(!mailformat.test((document.getElementById('{!$Component.frm.pb.pbs.pbs4}').value))) 
+        {
+          alert("Enter valid Email");
+        }
+        else
+        {
+            callSubmt();
+            alert("Contact has been inserted");
+        }
+    }
+   
+    </script>
+<!-- Javascript -->
+
+<apex:form id="frm">
+
+<apex:actionFunction action="{!submt}" name="callSubmt" reRender="pb"/>
+
+    <apex:pageBlock id="pb">
+        <apex:pageBlockSection id="pbs">
+            <apex:inputField value="{!con.LastName}" id="pbs1"/>
+            <apex:inputField value="{!con.Email}"/>
+            <apex:inputField value="{!con.Phone}" id="pbs3"/>
+            <apex:inputField value="{!con.Test_Email__c}" id="pbs4"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Insert" onclick="validate();"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+<apex:form >
+    <apex:pageblock >
+     <apex:pageblockButtons >
+       <apex:commandButton value="Search" action="{!search}"/>
+     </apex:pageblockButtons>
+    <apex:pageBlockSection >
+     <apex:inputText label="Enter Contact Name" value="{!enteredcontact}"/>
+    </apex:pageBlockSection>
+    <apex:pageblocksection >
+      <apex:pageblockTable value="{!records}" var="cont">
+        <apex:column value="{!cont.Email}" headerValue="Email"/>
+        <apex:column value="{!cont.Name}" headerValue="Name"/>
+        <apex:column value="{!cont.Phone}" headerValue="phone"/>
+      </apex:pageblockTable>
+    </apex:pageblocksection>
+   </apex:pageblock>
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page standardController="Account" extensions="ext1,ext2">
+<apex:form >
+    <apex:inputText value="{!message}"/>
+    <apex:outputText value="{!ext1message}"/>
+    <apex:commandButton value="Save" action="{!saveAccount}"/>
+</apex:form>
+</apex:page>

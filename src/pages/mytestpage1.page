@@ -1,0 +1,25 @@
+<apex:page standardcontroller="Account" extensions="myOppsController" sidebar="false" id="page" >
+<script>
+
+function ip()
+{
+
+test();
+
+}
+</script>
+<apex:form id="form" >
+    <apex:pageBlock id="block1">
+    <apex:actionFunction name="test" action="{!changevalue}" reRender="block1"/>
+     <apex:commandButton value="Add"  id="iframes" onclick="ip();"/>
+   <apex:iframe src="https://c.ap1.visual.force.com/apex/tableexample" id="theFrame" rendered="{!if(flag==true,true,true)}" />
+  
+     <apex:variable var="i" value="{!0}"/>
+       <apex:pageBlockTable value="{!opportunities}" var="acc">
+             <apex:column value="{!acc.Name}" style="background:pink;" onclick="ip('{!i}');"/>
+             <apex:column value="{!acc.Amount}" style="background:red;" onclick="ip('{!i}');"/>
+           
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

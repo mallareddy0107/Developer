@@ -1,0 +1,29 @@
+<apex:component >
+<apex:attribute name="ipAddr" description="IP Address from Controller" type="String" required="true"/>
+
+<apex:includeScript value="/soap/ajax/24.0/connection.js"/>
+<apex:includeScript value="/soap/ajax/24.0/apex.js"/>
+
+<script  type="text/javascript">
+var myIp="{!ipAddr}";
+
+var currentPageUrl = "";
+if (typeof this.href == "undefined") {
+    currentPageUrl = (window.location != window.parent.location) ? document.referrer: document.location;
+}else{
+    currentPageUrl = (window.location != window.parent.location) ? document.referrer: document.location;
+} 
+
+sforce.connection.sessionId = '{!$Api.Session_ID}';
+var records= [];
+var Rec = new sforce.SObject("Tracking__c");
+Rec.Name = "UndefinedURL";
+Rec.URL__C = currentPageUrl;
+Rec.IP_Address__c = myIp;
+
+
+var result = sforce.connection.create([Rec]);
+alert(result);
+</script>
+
+</apex:component>

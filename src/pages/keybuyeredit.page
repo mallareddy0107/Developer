@@ -1,0 +1,32 @@
+<apex:page standardController="OpportunityKeyBuyer__c" recordSetVar="KeyBuyerValues" tabStyle="Opportunity" extensions="KeyBuyerValues_Controller">
+   <script>function setFocusOnLoad() {}</script>
+   <apex:pagemessages />
+   <apex:outputPanel id="myPanel">
+    <apex:form >        
+        <apex:pageBlock title="Edit KeyBuyerValues" mode="edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!saveKeyBuyerValues}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!KeyBuyerValuesList}" var="a">
+                                
+                <apex:column headerValue="Key Buyer">
+                    <apex:inputField value="{!a.KeyBuyerId__c}"/>
+                </apex:column>
+                <apex:column headerValue="Key Decision Maker">
+                    <apex:inputField value="{!a.KeyDecisionMakerNm__c}"/>
+                </apex:column>
+                <apex:column headerValue="Decision Role">
+                    <apex:inputField value="{!a.KeyBuyerRoleNm__c}"/>
+                </apex:column>
+                <apex:column headerValue="Coach">
+                    <apex:inputField value="{!a.CoachNm__c}"/>
+                </apex:column>
+                <apex:column headerValue="Relationship Objective">
+                    <apex:inputField value="{!a.KeyBuyerRelationshipIbjectiveDesc__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+         </apex:pageBlock>          
+    </apex:form>
+    </apex:outputPanel>
+</apex:page>

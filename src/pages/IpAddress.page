@@ -1,0 +1,5 @@
+<apex:page controller="IpAddress123456">
+  
+  <c:track ipAddr="{!myIpAddress}"/>
+  
+</apex:page>

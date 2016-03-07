@@ -1,0 +1,17 @@
+<apex:page standardController="Account">
+<apex:pageBlock >
+<apex:dataTable value="{!account}" var="a">
+<apex:facet name="caption">This is{!account.name}</apex:facet>
+<apex:facet name="footer"><p>Information
+Accurate as of {!NOW()}</p></apex:facet>
+<apex:column >
+<apex:facet name="header">Name</apex:facet>
+<apex:outputField value="{!a.name}"/>
+</apex:column>
+<apex:column >
+<apex:facet name="header">Owner</apex:facet>
+<apex:outputText value="{!a.owner.name}"/>
+</apex:column>
+</apex:dataTable>
+</apex:pageBlock>
+</apex:page>

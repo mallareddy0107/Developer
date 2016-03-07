@@ -1,0 +1,19 @@
+<apex:page controller="ActionPollerCon">
+    <apex:form >
+        <apex:pageBlock title="Are you Ready">
+            <apex:pageBlockSection title="Hit the button" columns="1">
+                <apex:pageblockSectionItem >
+                    <apex:outputText value="Start bursting the button..!! Your Time is 15 seconds."/>
+                </apex:pageblockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Hit me" action="{!hitme}" 
+                           rerender="scoreid" disabled="{!but}"/>
+                    <apex:actionPoller action="{!act}" rerender="scoreid" interval="15"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Score" id="scoreid">
+                <apex:outputLabel value="{!result}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

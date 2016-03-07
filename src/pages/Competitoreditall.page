@@ -1,0 +1,50 @@
+<apex:page standardController="Competitor1__c" recordSetVar="competitors" tabStyle="Opportunity" extensions="OM_R1_Competitors_Controller">
+   <script>function setFocusOnLoad() {}</script>
+   <apex:pagemessages />
+   <apex:outputPanel id="myPanel">
+    <apex:form >        
+        <apex:pageBlock title="Edit Competitor" mode="edit">
+            <!-- <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!saveCompetitors}" disabled="{!disabl}"/>
+                <apex:commandButton value="Cancel" action="{!cancelCompetitors}"/>
+            </apex:pageBlockButtons> -->
+            <apex:PageBlockButtons location="bottom">
+                <apex:actionStatus id="SaveButtonStatus">
+                    <apex:facet name="stop">
+                        <apex:OutputPanel >
+                            <apex:commandButton value="Save" status="SaveButtonStatus" action="{!saveCompetitors}" reRender="form" onclick="changeCSS()"/>
+                            <apex:commandButton value="Close" onclick="self.close();" />
+                        </apex:OutputPanel>
+                    </apex:facet>
+               
+                <apex:facet name="start">
+                    <apex:OutputPanel >
+                        <apex:commandButton value="Saving..." disabled="true" />
+                        <apex:commandButton value="Cancel" disabled="true" />
+                    </apex:OutputPanel>
+                </apex:facet>
+            </apex:actionStatus>
+        </apex:PageBlockButtons>
+            <apex:pageBlockTable value="{!competitorList}" var="a">
+                <apex:column headerValue="Opportunity">
+                    <apex:outputText value="{!a.Opportunity_Name__r.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Name">
+                    <apex:outputField value="{!a.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Competitor">
+                    <apex:inputField value="{!a.Competitor_Value__c}"/>
+                </apex:column>
+                <apex:column headerValue="Other Competitors">
+                    <apex:inputField value="{!a.Test_competitor__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+         </apex:pageBlock>          
+    </apex:form>
+    </apex:outputPanel>
+    <script language="javascript">
+    function changeCSS() {
+    document.getElementById("j_id0:j_id28:j_id29:j_id30:j_id33").style.visibility = "hidden";
+    }
+    </script>
+</apex:page>

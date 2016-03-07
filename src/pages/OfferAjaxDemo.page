@@ -1,0 +1,28 @@
+<apex:page standardController="Offer__c" extensions="OfferAjaxDemoClass">
+<apex:form >
+<apex:pageBlock id="PB1">
+<apex:pageBlockButtons >
+<apex:commandButton value="Save Offer" action="{!Save}"/>
+<apex:commandButton value="Cancel" action="{!cancel}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockSection >
+<apex:inputField value="{!offer.Company_Name__c}"/>
+<apex:inputField value="{!offer.Current_Packege__c}"/>
+<apex:inputField value="{!offer.Student__c}"/>
+<apex:actionRegion >
+ Employee Type: <apex:inputField value="{!offer.Employee_Type__c}">
+ <apex:actionsupport event="onchange" action="{!checkrequired}" rerender="PBS1"/>
+</apex:inputField>
+</apex:actionRegion>
+</apex:pageBlockSection>
+<!--</apex:pageBlock>
+<apex:pageBlock > -->
+<apex:outputPanel id="PBS1">
+<apex:pageBlockSection rendered="{!isRequired}">
+<apex:inputField value="{!offer.Agency_Name_if_Contract__c}" required="true"/>
+<apex:inputField value="{!offer.Agency_Website__c}" required="true"/>
+</apex:pageBlockSection>
+</apex:outputPanel>
+</apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,35 @@
+<apex:page sidebar="true" showHeader="true" controller="StudentRegisterationController">
+<apex:form >
+<apex:pageBlock title="Student Registeration" id="PBid">
+<apex:pageBlockButtons >
+<apex:commandButton value="Submit" action="{!save}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockSection title="Student Details">
+<apex:inputField value="{!lead.FirstName}"/>
+<apex:inputField value="{!lead.LastName}"/>
+<apex:inputField value="{!lead.Email}"/>
+<apex:inputField value="{!lead.MobilePhone}"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Fee Enquiry">
+<apex:actionRegion >
+<apex:selectList size="1" value="{!CurrencyValue}">
+   Fee In:  <apex:selectOptions value="{!Currency}"/>
+  <apex:actionSupport event="onchange" action="{!getCurrencyFromWebservice}" reRender="PBid" status="StatusId">
+ 
+ 
+ </apex:actionSupport>
+</apex:selectList>
+</apex:actionRegion>
+<apex:actionStatus startText="Please wait.." id="StatusId" startStyle="color:green"/>
+<apex:outputText value="{!responseValue}"/>
+
+
+</apex:pageBlockSection>
+
+
+
+
+</apex:pageBlock>
+  </apex:form>
+  
+</apex:page>

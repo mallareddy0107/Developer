@@ -1,0 +1,26 @@
+<apex:page sidebar="false" showheader="false">
+  <style>
+    .respImageContainer{
+        width:150px;
+        padding-top:10px;]
+    }
+     
+    @media ( min-width: 768px ) {
+        .respImageContainer
+        {
+            width:320px;
+        }
+    }
+     
+    @media ( min-width: 1024px ) {
+        .respImageContainer
+        {
+            width:677px;
+        }
+    }
+  </style>
+   
+  <div class="respImageContainer">
+    <img style="width:100%" src="{!$Resource.S1DevWeekLarge}" />
+  </div>
+</apex:page>

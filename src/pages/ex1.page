@@ -1,0 +1,22 @@
+<apex:page >
+
+<table id="theGrid">
+    <tbody>
+        <tr>
+            <td><span id="theFirst">First</span></td>
+            <td><span id="theSecond">Second</span></td>
+            <td><span id="theThird">Third</span></td>
+        </tr>
+        <tr>
+            <td><span id="theFourth">Fourth</span></td>
+        </tr>
+    </tbody>
+</table>
+
+    <apex:panelGrid columns="3" id="theGrid">
+        <apex:outputText value="First" id="theFirst"/>
+        <apex:outputText value="Second" id="theSecond"/>
+        <apex:outputText value="Third" id="theThird"/>
+        <apex:outputText value="Fourth" id="theFourth"/>
+    </apex:panelGrid>
+</apex:page>

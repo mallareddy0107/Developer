@@ -1,0 +1,3 @@
+<apex:page id="ResourceHeroPage" showHeader="true" tabstyle="ResourceHeroApp__Resource__c">
+    <c:Matrix />
+</apex:page>

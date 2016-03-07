@@ -1,0 +1,20 @@
+<apex:page standardController="Account" extensions="WrapperController">
+  <apex:form >
+   <apex:pageblock >
+    <apex:pageBlockSection title="Account page" id="pb1">
+     <apex:commandbutton value="Go" action="{!moveRecords}"/>
+    </apex:pageblocksection>
+    <apex:pageblocksection >    
+     <apex:pageBlockTable value="{!WrapperList}" var="acc">
+     
+      <apex:column headerValue="select the Account to move">     
+       <apex:inputCheckbox value="{!acc.selected}"/> 
+      </apex:column>    
+       <apex:column value="{!acc.wacc.Name}"/>
+       <apex:column value="{!acc.wacc.Phone}"/>
+       <apex:column value="{!acc.wacc.AccountNumber}"/>
+     </apex:pageBlockTable>
+    </apex:pageBlockSection>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page standardController="Contact" extensions="CustomLabelExtension" >
+<h1>This is simple</h1>
+<apex:outputLabel value="{!$Label.Mallareddy_test}"/>
+</apex:page>

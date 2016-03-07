@@ -1,0 +1,14 @@
+<apex:page Controller="StudentController">
+<apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection >
+  <apex:repeat value="{!stuList}" var="stu">
+   <apex:inputField value="{!stu.Name}" label="Name"/>
+   <apex:outputField value="{!stu.Name}" Label="Name"/>
+   <apex:inputText value="{!stu.Name}"/>
+   <apex:outputText value="{!stu.Name}"/>
+   </apex:repeat> 
+  </apex:pageBlockSection>  
+  </apex:pageBlock> 
+ </apex:form>
+</apex:page>

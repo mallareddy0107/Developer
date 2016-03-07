@@ -1,0 +1,59 @@
+<apex:page standardcontroller="Student__c" extensions="StudentAndOffersClass">
+<apex:form >
+<style>
+h2
+{
+font-size:20px;
+color:green;
+transform: rotateX(120deg);
+margin-left:auto;
+}
+</style>
+<apex:pageBlock id="PB1">
+
+<apex:pageblock >
+<apex:pageBlockButtons >
+<apex:commandButton value="Save" action="{!Save}"/>
+<apex:commandButton value="Cancel" action="{!cancel}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockSection title="Student Details">
+<!--<apex:pageBlockTable value="{!listOfStudentsAndOffers}" var="stuandoff"> -->
+<apex:inputField value="{!listOfStudentsAndOffers.Batch__c}"/>
+<apex:inputField value="{!listOfStudentsAndOffers.Name}"/>
+<apex:inputField value="{!listOfStudentsAndOffers.Total_No_Of_Offers__c}"/>
+<apex:inputField value="{!listOfStudentsAndOffers.Payment_Status__c}"/>
+<apex:inputField value="{!listOfStudentsAndOffers.Email__c}"/>
+
+</apex:pageBlockSection>
+</apex:pageBlock>
+<apex:pageBlock >
+<apex:pageBlockSection rendered="{!isNewOffer}" title="Enter New Offer details">
+<apex:inputField value="{!newOffer.Company_Name__c}"/>
+<apex:inputField value="{!newOffer.City__c}"/>
+<apex:inputField value="{!newOffer.Employee_Type__c}"/>
+<apex:inputField value="{!newOffer.Current_Packege__c}"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+
+<apex:pageblock id="offersId" rendered="{! !isRequired}">
+<apex:pageBlockSection title="Offer details" rendered="{! !offerDetail}">
+<apex:pageBlockTable value="{!wrapperList1}" var="off">
+<apex:column headerValue="Delete">
+ <apex:actionsupport action="{!deleteOffer}" event="onclick" reRender="offersId" status="msg1">
+  <apex:inputCheckbox value="{!off.selected}"/>
+ </apex:actionsupport>
+ <h1><apex:actionstatus startText="Deleting...Please Wait.." id="msg1"/></h1>
+</apex:column>
+<apex:column value="{!off.woffer.Company_Name__c}"/>
+<apex:column value="{!off.woffer.Name}"/>
+<apex:column value="{!off.woffer.Employee_Type__c}"/>
+<apex:column value="{!off.woffer.Current_Packege__c}"/>
+
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+</apex:pageblock>
+
+</apex:pageblock>
+</apex:form>
+  
+</apex:page>
